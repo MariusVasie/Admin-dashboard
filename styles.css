@@ -7,6 +7,10 @@ body {
     grid-template-rows: 1fr 5fr;
 }
 
+h2 {
+    margin-top: 0;
+}
+
 
 .header {
     background-color: #fff;
@@ -83,28 +87,29 @@ body {
     grid-row: 2 /3;
     display: grid;
     grid-template-columns: 3fr 1fr;
-    grid-template-rows: auto auto;
+    grid-template-rows: repeat(6, 1fr);
     gap: 15px;
+    padding: 30px;
 
 
     .projects {
-        background-color: wheat;
+        background-color: #e2e8f0;
         grid-column: 1;
-        grid-row: 1 / 3;
+        grid-row: 1 / span 6;
         padding: 15px;
 
         .project-cards {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: repeat(3, 1fr);
-            gap: 15px;
+            gap: 30px;
 
             .project-card {
                 background-color: white;
-                min-height: 200px;
+                min-height: 175px;
                 padding: 20px;
                 border-radius: 10px;
-                border-left: orange 5px solid;
+                border-left: orange 10px solid;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
                 display: flex;
                 font-size: 18px;
@@ -113,23 +118,69 @@ body {
 
                 .project-icons {
                     margin-top: auto;
+                    display: flex;
+                    gap: 15px;
+                    justify-content: flex-end;
+                }
+
+                .project-card-title {
+                    font-weight: bold;
+                    font-size: 20px;
+                    margin-bottom: 10px;
                 }
             }
         }
     }
 
     .announcements {
-        background-color: lightgreen;
         grid-column: 2;
-        grid-row: 1;
+        grid-row: 1 / span 3;
         padding: 15px;
+
+        .announcements-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .announcement:not(:last-child) {
+                border-bottom: 1px solid #636363;
+                padding-bottom: 10px;
+            }
+
+            .announcement-title {
+                font-weight: bold;
+                font-size: 16px;
+                margin-bottom: 5px;
+            }
+
+            .announcement-desc {
+                font-size: 14px;
+            }
+        }
     }
 
     .trending {
-        background-color: lightcoral;
         grid-column: 2;
-        grid-row: 2;
+        grid-row: 4 / span 3;
         padding: 15px;
+
+        .trending-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .trending-user {
+            display: flex;
+        }
     }
 }
 .sidebar {
